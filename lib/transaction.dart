@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/transaction.dart';
 
 
 
@@ -144,6 +143,52 @@ class _IncomeTrackerPageState extends State<IncomeTrackerPage> {
               ElevatedButton(
                 onPressed: navigateToIncomeEntriesPage,
                 child: Text('View Income Entries'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class IncomeEntriesPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final List<IncomeEntry> incomeEntries =
+        ModalRoute.of(context)!.settings.arguments as List<IncomeEntry>;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Income Entries'),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Income Entries:',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+              ),
+              DataTable(
+                columns: [
+                  DataColumn(label: Text('Name')),
+                  DataColumn(label: Text('Amount')),
+                  DataColumn(label: Text('Sales')),
+                  DataColumn(label: Text('Cash')),
+                  DataColumn(label: Text('Remarks')),
+                ],
+                rows: incomeEntries.map((entry) {
+                  return DataRow(cells: [
+                    DataCell(Text(entry.name)),
+                    DataCell(Text(entry.amount.toString())),
+                    DataCell(Text(entry.sales.toString())),
+                    DataCell(Text(entry.cash.toString())),
+                    DataCell(Text(entry.remarks)),
+                  ]);
+                }).toList(),
               ),
             ],
           ),

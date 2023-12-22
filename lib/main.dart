@@ -52,7 +52,7 @@ class CashFlowHomePage extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const IncomePage()));
+                        builder: (context) => const IncomeTrackerApp()));
               },
             ),
             ListTile(
@@ -64,6 +64,15 @@ class CashFlowHomePage extends StatelessWidget {
                         builder: (context) => const ExpensePage()));
               },
             ),
+            // ListTile(
+            //   title: const Text('Transaction'),
+            //   onTap: () {
+            //     Navigator.push(
+            //         context,
+            //         MaterialPageRoute(
+            //             builder: (context) => const TransactionPage()));
+            //   },
+            // ),
           ],
         ),
       ),

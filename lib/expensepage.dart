@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'income_expenses.dart';
+import 'transaction.dart';
 
 class ExpensePage extends StatefulWidget {
   const ExpensePage({Key? key}) : super(key: key);
@@ -73,10 +73,7 @@ class ExpensePageState extends State<ExpensePage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => DetailsPage(
-          totalAmount: total,
-          itemList: itemList,
-        ),
+        builder: (context) =>  IncomeEntriesPage(),
       ),
     );
   }
